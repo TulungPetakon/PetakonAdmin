@@ -55,9 +55,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Create ENV files
-        run: |
-          echo "${{ env.TXT_ENV }}" >> .env
-          ls -l
+        run: echo "${{ env.TXT_ENV }}" >> .env
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.4.0
@@ -66,4 +64,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
