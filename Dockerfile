@@ -1,4 +1,4 @@
-FROM node:18-alpine as BUILD_IMAGE
+FROM node:20-alpine as BUILD_IMAGE
 
 WORKDIR /strapi
 
@@ -16,7 +16,7 @@ RUN yarn build
 #------------------------------------------------------------------------------------
 
 # Create new namespace for final Docker Image
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Only copy your source code without system file
 COPY --from=BUILD_IMAGE /strapi /strapi
