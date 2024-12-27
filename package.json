@@ -9,7 +9,8 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "postinstall": "modclean --run --patterns=\"./scripts/cleaner.js:safe\""
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^5.0.0",
@@ -19,6 +20,7 @@
     "@strapi/strapi": "5.5.1",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
+    "modclean": "3.0.0-beta.1",
     "pg": "^8.13.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
