@@ -13,7 +13,7 @@ const defaultHtml: Preset = {
   description: 'Rich Text Editor',
   editorConfig: {
     ...defaultHtmlPreset.editorConfig,
-    placeholder: 'Rich Text Editor',
+    placeholder: 'Input Any Text..',
     toolbar: {
       shouldNotGroupWhenFull: true,
       items: [

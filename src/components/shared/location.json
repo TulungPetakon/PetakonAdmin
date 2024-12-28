@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_locations",
+  "info": {
+    "displayName": "Location",
+    "icon": "pinMap",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "direction": {
+      "type": "text"
+    },
+    "mappoint": {
+      "type": "customField",
+      "options": {
+        "info": true
+      },
+      "customField": "plugin::geodata.geojson"
+    },
+    "district": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::district.district"
+    }
+  }
+}

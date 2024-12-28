@@ -1,5 +1,45 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ActivitiesTicket extends Struct.ComponentSchema {
+  collectionName: 'components_activities_tickets';
+  info: {
+    displayName: 'Ticket';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    price: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedLocation extends Struct.ComponentSchema {
+  collectionName: 'components_shared_locations';
+  info: {
+    description: '';
+    displayName: 'Location';
+    icon: 'pinMap';
+  };
+  attributes: {
+    address: Schema.Attribute.String & Schema.Attribute.Required;
+    direction: Schema.Attribute.Text;
+    district: Schema.Attribute.Relation<'oneToOne', 'api::district.district'>;
+    mappoint: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +105,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'activities.ticket': ActivitiesTicket;
+      'shared.location': SharedLocation;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
