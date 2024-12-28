@@ -15,6 +15,7 @@
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^5.0.0",
     "@strapi/plugin-cloud": "5.5.1",
+    "@strapi/plugin-graphql": "^5.6.0",
     "@strapi/plugin-users-permissions": "5.5.1",
     "@strapi/provider-upload-aws-s3": "^5.6.0",
     "@strapi/strapi": "5.5.1",
@@ -26,6 +27,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-geodata": "^0.1.2",
+    "strapi-v5-plugin-populate-deep": "^4.0.4",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
@@ -41,6 +44,11 @@
   },
   "strapi": {
     "uuid": "a3c89b67-40b6-47c8-b4b2-4d3cb4c60e13"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "strapi-geodata": "patches/strapi-geodata.patch"
+    }
   }
 }
 

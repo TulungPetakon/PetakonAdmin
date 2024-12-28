@@ -20,6 +20,7 @@ export default ({ env }) => [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
+          'script-src': ["'self'", 'unsafe-inline', 'https://*.basemaps.cartocdn.com'],
           'img-src': [
             "'self'",
             'data:',
@@ -27,6 +28,11 @@ export default ({ env }) => [
             'market-assets.strapi.io',
             getOrigin(env('OCI_ENDPOINT')),
             getOrigin(env('CF_PUBLIC_ACCESS_URL')),
+            'https://*.basemaps.cartocdn.com',
+            'market-assets.strapi.io',
+            'https://*.tile.openstreetmap.org',
+            'https://unpkg.com/leaflet@1.9.4/dist/images/',
+            'https://mt0.google.com',
           ],
           'media-src': [
             "'self'",
@@ -35,6 +41,9 @@ export default ({ env }) => [
             'market-assets.strapi.io',
             getOrigin(env('OCI_ENDPOINT')),
             getOrigin(env('CF_PUBLIC_ACCESS_URL')),
+            'https://*.basemaps.cartocdn.com',
+            'https://tile.openstreetmap.org',
+            'https://*.tile.openstreetmap.org',
           ],
           upgradeInsecureRequests: null,
         },
