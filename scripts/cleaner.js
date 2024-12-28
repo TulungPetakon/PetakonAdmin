@@ -95,7 +95,7 @@ module.exports = {
       '.flowconfig',
 
       // added
-      '*.min.js',
+      // '*.min.js',
       'test.js',
       '*.test.js',
       'tests',
@@ -110,7 +110,13 @@ module.exports = {
       'docs',
     ],
 
-    ignore: ['validate-npm-package-license', 'spdx-license-ids', '**/lodash.min.js', '**/languages/makefile'],
+    ignore: [
+      'validate-npm-package-license',
+      'spdx-license-ids',
+      '**/lodash.min.js',
+      '**/languages/makefile',
+      '**/react/**/*.min.js',
+    ],
   },
 
   caution: {
@@ -168,4 +174,3 @@ module.exports = {
     ignore: [],
   },
 };
-
