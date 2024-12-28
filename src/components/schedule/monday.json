@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_schedule_mondays",
+  "info": {
+    "displayName": "A Single Day",
+    "icon": "clock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "start": {
+      "type": "time"
+    },
+    "end": {
+      "type": "time"
+    }
+  }
+}

@@ -19,6 +19,36 @@ export interface ActivitiesTicket extends Struct.ComponentSchema {
   };
 }
 
+export interface ScheduleDaily extends Struct.ComponentSchema {
+  collectionName: 'components_schedule_dailies';
+  info: {
+    displayName: 'Daily';
+    icon: 'clock';
+  };
+  attributes: {
+    friday: Schema.Attribute.Component<'schedule.monday', false>;
+    monday: Schema.Attribute.Component<'schedule.monday', false>;
+    saturday: Schema.Attribute.Component<'schedule.monday', false>;
+    sunday: Schema.Attribute.Component<'schedule.monday', false>;
+    thursday: Schema.Attribute.Component<'schedule.monday', false>;
+    tuesday: Schema.Attribute.Component<'schedule.monday', false>;
+    wednesday: Schema.Attribute.Component<'schedule.monday', false>;
+  };
+}
+
+export interface ScheduleMonday extends Struct.ComponentSchema {
+  collectionName: 'components_schedule_mondays';
+  info: {
+    description: '';
+    displayName: 'A Single Day';
+    icon: 'clock';
+  };
+  attributes: {
+    end: Schema.Attribute.Time;
+    start: Schema.Attribute.Time;
+  };
+}
+
 export interface SharedLocation extends Struct.ComponentSchema {
   collectionName: 'components_shared_locations';
   info: {
@@ -40,17 +70,6 @@ export interface SharedLocation extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
-  info: {
-    displayName: 'Media';
-    icon: 'file-video';
-  };
-  attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-  };
-}
-
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -60,18 +79,6 @@ export interface SharedQuote extends Struct.ComponentSchema {
   attributes: {
     body: Schema.Attribute.Text;
     title: Schema.Attribute.String;
-  };
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText;
   };
 }
 
@@ -90,28 +97,15 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
-  info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
-  };
-  attributes: {
-    files: Schema.Attribute.Media<'images', true>;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'activities.ticket': ActivitiesTicket;
+      'schedule.daily': ScheduleDaily;
+      'schedule.monday': ScheduleMonday;
       'shared.location': SharedLocation;
-      'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
     }
   }
 }

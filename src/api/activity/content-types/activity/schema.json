@@ -25,11 +25,6 @@
       "type": "string",
       "required": true
     },
-    "tags": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tag.tag"
-    },
     "description": {
       "pluginOptions": {
         "i18n": {
@@ -46,7 +41,11 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"],
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -71,8 +70,25 @@
         }
       },
       "type": "dynamiczone",
-      "components": ["activities.ticket"]
+      "components": [
+        "activities.ticket"
+      ]
+    },
+    "business_hours": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "schedule.daily"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "activity"
     }
   }
 }
-
