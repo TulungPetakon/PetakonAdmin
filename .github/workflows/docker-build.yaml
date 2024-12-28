@@ -1,4 +1,4 @@
-name: Create and publish Docker image
+name: Build and publish Docker Image to Github Registry
 
 on:
   push:
@@ -7,22 +7,6 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  TXT_ENV: |
-    HOST='0.0.0.0'
-    PORT='1337'
-    APP_KEYS='4F1Iir2gMP/AgpE4g6VHKg==,w5RPMljaQVyzpSwIzIfaew==,nNcI/yI0XvTbq7WzCN1naw==,xwJjfbbaqoPOBYowNTxn+w=='
-    API_TOKEN_SALT='ncsf3IkTj0hXrPrkePFHZg=='
-    ADMIN_JWT_SECRET='yPztPHWQ39rpFK+qHVhuCw=='
-    TRANSFER_TOKEN_SALT='k5wOsZinGnsfysTLTxn+kg=='
-    DATABASE_CLIENT='postgres'
-    DATABASE_HOST='ep-dry-rice-a13omzvy.ap-southeast-1.aws.neon.tech'
-    DATABASE_PORT='5432'
-    DATABASE_NAME='petakondb'
-    DATABASE_USERNAME='petakondb_owner'
-    DATABASE_PASSWORD='LPfW9VZ4uRnB'
-    DATABASE_SSL=true
-    DATABASE_FILENAME='.tmp/petakon.db'
-    JWT_SECRET='UHLrnieltWWHZXclpYcRYQ=='
 
 jobs:
   build-and-push-image:
@@ -54,11 +38,6 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Create ENV files
-        run: |
-          echo "${{ env.TXT_ENV }}" >> .env
-          ls -l
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.4.0
         with:
@@ -66,4 +45,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-

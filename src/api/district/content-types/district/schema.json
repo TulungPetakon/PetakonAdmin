@@ -1,27 +1,24 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "districts",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "Article",
-    "description": "Create your blog content"
+    "singularName": "district",
+    "pluralName": "districts",
+    "displayName": "Kecamatan",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text",
-      "maxLength": 80
+    "name": {
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "required": true
     },
     "cover": {
       "type": "media",
@@ -29,11 +26,10 @@
       "required": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos"
+        "files"
       ]
     },
-    "Content": {
+    "description": {
       "type": "customField",
       "options": {
         "preset": "defaultHtml"

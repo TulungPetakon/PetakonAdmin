@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_schedule_dailies",
+  "info": {
+    "displayName": "Daily",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "monday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.monday"
+    },
+    "tuesday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.monday"
+    },
+    "wednesday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.monday"
+    },
+    "thursday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.monday"
+    },
+    "friday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.monday"
+    },
+    "saturday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.monday"
+    },
+    "sunday": {
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.monday"
+    }
+  }
+}

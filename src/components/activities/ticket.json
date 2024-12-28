@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_activities_tickets",
+  "info": {
+    "displayName": "Ticket",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "min": 0
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

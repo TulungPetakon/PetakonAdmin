@@ -1,0 +1,73 @@
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index cdf190dca1be419947fc41ce7dadbea6f2a9705f..0000000000000000000000000000000000000000
+diff --git a/dist/_chunks/Input-CGF4Yw8A.js b/dist/_chunks/Input-CGF4Yw8A.js
+index 6c19f94e73d64802eb59d64db4890766f345d104..14dd2abc27f40e848754d25b4479880edbff83e7 100644
+--- a/dist/_chunks/Input-CGF4Yw8A.js
++++ b/dist/_chunks/Input-CGF4Yw8A.js
+@@ -10,8 +10,8 @@ require("leaflet/dist/leaflet.css");
+ const _interopDefault = (e) => e && e.__esModule ? e : { default: e };
+ const L__default = /* @__PURE__ */ _interopDefault(L);
+ const version = "0.1.02";
+-const iconUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png";
+-const iconRetinaUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png";
++const iconUrl = "/petakon-pin.png";
++const iconRetinaUrl = "/petakon-pin2.png";
+ const shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png";
+ const customIcon = new L__default.default.Icon({
+   iconUrl,
+@@ -26,7 +26,7 @@ const customIcon = new L__default.default.Icon({
+ const mapProps = {
+   zoom: 7,
+   center: [41.9, 12.5],
+-  tileUrl: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
++  tileUrl: "https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+   tileAttribution: "OSM attribution",
+   tileAccessToken: ""
+ };
+@@ -72,8 +72,8 @@ const Input = (props) => {
+     }
+   }
+   async function setLatLng() {
+-    let lat = latRef.current?.value;
+-    let lng = lngRef.current?.value;
++    let lat = latRef.current?.value || -8.07290355;
++    let lng = lngRef.current?.value || 111.89964078880708;
+     if (lat && lng) {
+       lat = parseFloat(lat);
+       lng = parseFloat(lng);
+diff --git a/dist/_chunks/Input-DOeDXYQ2.mjs b/dist/_chunks/Input-DOeDXYQ2.mjs
+index a0cb813122283e76f8e850fe78bb1eef1dbc9ed4..051257d704dde3517d7862a7daa06c7bc5616a23 100644
+--- a/dist/_chunks/Input-DOeDXYQ2.mjs
++++ b/dist/_chunks/Input-DOeDXYQ2.mjs
+@@ -6,8 +6,8 @@ import { F as ForwardRef } from "./index-BRG6ORBJ.mjs";
+ import { Box, Typography, TextInput, Button, JSONInput } from "@strapi/design-system";
+ import "leaflet/dist/leaflet.css";
+ const version = "0.1.02";
+-const iconUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png";
+-const iconRetinaUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png";
++const iconUrl = "/petakon-pin.png";
++const iconRetinaUrl = "/petakon-pin2.png";
+ const shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png";
+ const customIcon = new L.Icon({
+   iconUrl,
+@@ -21,8 +21,8 @@ const customIcon = new L.Icon({
+ });
+ const mapProps = {
+   zoom: 7,
+-  center: [41.9, 12.5],
+-  tileUrl: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
++  center: [-8.1236835, 112.3390323],
++  tileUrl: "https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+   tileAttribution: "OSM attribution",
+   tileAccessToken: ""
+ };
+@@ -69,7 +69,7 @@ const Input = (props) => {
+   }
+   async function setLatLng() {
+     let lat = latRef.current?.value;
+-    let lng = lngRef.current?.value;
++    let lng = lngRef.current?.value
+     if (lat && lng) {
+       lat = parseFloat(lat);
+       lng = parseFloat(lng);

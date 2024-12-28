@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "petakon-server",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -9,25 +9,33 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "postinstall": "modclean --run --patterns=\"./scripts/cleaner.js:safe\""
   },
   "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^5.0.0",
     "@strapi/plugin-cloud": "5.5.1",
+    "@strapi/plugin-graphql": "^5.6.0",
     "@strapi/plugin-users-permissions": "5.5.1",
+    "@strapi/provider-upload-aws-s3": "^5.6.0",
     "@strapi/strapi": "5.5.1",
-    "better-sqlite3": "11.3.0",
+    "@strapi/utils": "^5.6.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
+    "modclean": "3.0.0-beta.1",
     "pg": "^8.13.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-geodata": "^0.1.2",
+    "strapi-v5-plugin-populate-deep": "^4.0.4",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "better-sqlite3": "11.3.0",
     "typescript": "^5"
   },
   "engines": {
@@ -36,5 +44,11 @@
   },
   "strapi": {
     "uuid": "a3c89b67-40b6-47c8-b4b2-4d3cb4c60e13"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "strapi-geodata": "patches/strapi-geodata.patch"
+    }
   }
 }
+

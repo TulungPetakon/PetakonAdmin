@@ -1,13 +1,72 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
+export interface ActivitiesTicket extends Struct.ComponentSchema {
+  collectionName: 'components_activities_tickets';
   info: {
-    displayName: 'Media';
-    icon: 'file-video';
+    displayName: 'Ticket';
+    icon: 'chartBubble';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    description: Schema.Attribute.Text;
+    price: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ScheduleDaily extends Struct.ComponentSchema {
+  collectionName: 'components_schedule_dailies';
+  info: {
+    displayName: 'Daily';
+    icon: 'clock';
+  };
+  attributes: {
+    friday: Schema.Attribute.Component<'schedule.monday', false>;
+    monday: Schema.Attribute.Component<'schedule.monday', false>;
+    saturday: Schema.Attribute.Component<'schedule.monday', false>;
+    sunday: Schema.Attribute.Component<'schedule.monday', false>;
+    thursday: Schema.Attribute.Component<'schedule.monday', false>;
+    tuesday: Schema.Attribute.Component<'schedule.monday', false>;
+    wednesday: Schema.Attribute.Component<'schedule.monday', false>;
+  };
+}
+
+export interface ScheduleMonday extends Struct.ComponentSchema {
+  collectionName: 'components_schedule_mondays';
+  info: {
+    description: '';
+    displayName: 'A Single Day';
+    icon: 'clock';
+  };
+  attributes: {
+    end: Schema.Attribute.Time;
+    start: Schema.Attribute.Time;
+  };
+}
+
+export interface SharedLocation extends Struct.ComponentSchema {
+  collectionName: 'components_shared_locations';
+  info: {
+    description: '';
+    displayName: 'Location';
+    icon: 'pinMap';
+  };
+  attributes: {
+    address: Schema.Attribute.String & Schema.Attribute.Required;
+    direction: Schema.Attribute.Text;
+    district: Schema.Attribute.Relation<'oneToOne', 'api::district.district'>;
+    mappoint: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
   };
 }
 
@@ -20,18 +79,6 @@ export interface SharedQuote extends Struct.ComponentSchema {
   attributes: {
     body: Schema.Attribute.Text;
     title: Schema.Attribute.String;
-  };
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText;
   };
 }
 
@@ -50,26 +97,15 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
-  info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
-  };
-  attributes: {
-    files: Schema.Attribute.Media<'images', true>;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.media': SharedMedia;
+      'activities.ticket': ActivitiesTicket;
+      'schedule.daily': ScheduleDaily;
+      'schedule.monday': ScheduleMonday;
+      'shared.location': SharedLocation;
       'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
     }
   }
 }
