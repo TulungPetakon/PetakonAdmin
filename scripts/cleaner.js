@@ -95,7 +95,7 @@ module.exports = {
       '.flowconfig',
 
       // added
-      '*.min.js',
+      // '*.min.js',
       'test.js',
       '*.test.js',
       'tests',
@@ -115,7 +115,7 @@ module.exports = {
       'spdx-license-ids',
       '**/lodash.min.js',
       '**/languages/makefile',
-      '**/react',
+      '**/react/**/*.min.js',
     ],
   },
 
