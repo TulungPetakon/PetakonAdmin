@@ -44,7 +44,7 @@ WORKDIR /strapi
 COPY . .
 
 FROM base_build AS prod_build
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 RUN pnpm run build
 
 
