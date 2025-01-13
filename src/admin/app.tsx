@@ -244,8 +244,24 @@ const myConfig: PluginConfig = {
 };
 
 export default {
+  config: {
+    locales: ['id', 'en'],
+    translations: {
+      en: {
+        'Auth.form.button.login.strapi': 'Login via PetakonApp',
+        'Auth.form.welcome.subtitle': 'Log in to your PetakonApp account',
+        'Auth.form.welcome.title': 'Welcome to PetakonApp!',
+        'Settings.permissions.users.listview.header.subtitle':
+          'All the users who have access to the Petakon admin panel',
+        'app.components.LeftMenu.navbrand.title': 'Petakon Admin Dashboard',
+      },
+      id: {
+        'Auth.form.welcome.subtitle': 'Masuk ke akun Petakon',
+        'Auth.form.welcome.title': 'Selamat datang di Petakon',
+      },
+    },
+  },
   register() {
     setPluginConfig(myConfig);
   },
 };
-
