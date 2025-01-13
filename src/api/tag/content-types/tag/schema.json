@@ -21,6 +21,12 @@
       "type": "uid",
       "targetField": "tag_name",
       "required": true
+    },
+    "activity": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::activity.activity",
+      "inversedBy": "tags"
     }
   }
 }

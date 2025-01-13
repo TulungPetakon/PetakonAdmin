@@ -388,7 +388,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
           preset: 'defaultHtml';
         }
       >;
-    cover: Schema.Attribute.Media<'images' | 'files'>;
+    cover: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -441,7 +441,7 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    gallery: Schema.Attribute.Media<'images' | 'files' | 'videos', true> &
+    gallery: Schema.Attribute.Media<'images' | 'videos', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -461,6 +461,7 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
       }>;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
     tickets: Schema.Attribute.DynamicZone<['activities.ticket']> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -534,7 +535,7 @@ export interface ApiDistrictDistrict extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    cover: Schema.Attribute.Media<'images' | 'files'>;
+    cover: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -609,7 +610,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    gallery: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
+    gallery: Schema.Attribute.Media<'images' | 'videos', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -643,6 +644,7 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    activity: Schema.Attribute.Relation<'manyToOne', 'api::activity.activity'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -916,6 +918,7 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   };
   attributes: {
     alternativeText: Schema.Attribute.String;
+    blurhash: Schema.Attribute.Text;
     caption: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
