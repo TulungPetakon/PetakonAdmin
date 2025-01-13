@@ -41,11 +41,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "videos"],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -70,9 +66,7 @@
         }
       },
       "type": "dynamiczone",
-      "components": [
-        "activities.ticket"
-      ]
+      "components": ["activities.ticket"]
     },
     "business_hours": {
       "type": "component",
@@ -92,3 +86,4 @@
     }
   }
 }
+
