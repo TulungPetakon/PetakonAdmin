@@ -1,4 +1,9 @@
-export default ({ env }) => ({
+import type { BlurhashConfig } from '@aguzztn54/strapi-blurhash-plugin/dist/server/types';
+
+interface PluginConfig extends BlurhashConfig {
+  [key: string]: any;
+}
+export default ({ env }): PluginConfig => ({
   upload: {
     config: {
       provider: 'aws-s3',
@@ -26,6 +31,12 @@ export default ({ env }) => ({
       },
     },
   },
+  blurhash: {
+    enabled: true,
+    config: {
+      regenerateOnUpdate: true,
+      forceRegenerateOnUpdate: false,
+    },
+  },
   // ...
 });
-
