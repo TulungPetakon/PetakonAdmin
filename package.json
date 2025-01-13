@@ -50,5 +50,6 @@
     "patchedDependencies": {
       "strapi-geodata": "patches/strapi-geodata.patch"
     }
-  }
+  },
+  "packageManager": "pnpm@9.15.1"
 }
