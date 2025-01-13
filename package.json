@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^5.0.0",
+    "@aguzztn54/strapi-blurhash-plugin": "^0.1.1",
     "@strapi/plugin-cloud": "5.5.1",
     "@strapi/plugin-graphql": "^5.6.0",
     "@strapi/plugin-users-permissions": "5.5.1",
@@ -51,4 +52,3 @@
     }
   }
 }
-
