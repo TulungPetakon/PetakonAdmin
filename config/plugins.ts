@@ -31,6 +31,19 @@ export default ({ env }): PluginConfig => ({
       },
     },
   },
+  graphql: {
+    config: {
+      endpoint: '/PetaHub',
+      // shadowCRUD: true,
+      // playgroundAlways: true,
+      // depthLimit: 7,
+      // amountLimit: 100,
+      apolloServer: {
+        // tracing: false,
+        introspection: true,
+      },
+    },
+  },
   blurhash: {
     enabled: true,
     config: {
