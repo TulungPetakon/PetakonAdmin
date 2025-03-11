@@ -37,6 +37,7 @@ FROM node:20-alpine AS base_build
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+RUN npm install -g corepack@latest
 RUN corepack enable && corepack install --global pnpm@latest
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 
