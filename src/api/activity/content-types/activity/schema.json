@@ -41,7 +41,10 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "videos"],
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -66,7 +69,9 @@
         }
       },
       "type": "dynamiczone",
-      "components": ["activities.ticket"]
+      "components": [
+        "activities.ticket"
+      ]
     },
     "business_hours": {
       "type": "component",
@@ -86,10 +91,9 @@
     },
     "tags": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::tag.tag",
-      "mappedBy": "activity"
+      "mappedBy": "activities"
     }
   }
 }
-

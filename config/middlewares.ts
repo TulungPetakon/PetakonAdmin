@@ -6,13 +6,19 @@ const getOrigin = (url: string = ''): string => {
 export default ({ env }) => [
   'strapi::logger',
   'strapi::errors',
-  'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
+  {
+    name: 'strapi::cors',
+    config: {
+      methods: ['GET', 'PUT', 'DELETE'],
+      origin: ['https://petakon.id', 'http://localhost:5173'],
+    },
+  },
   {
     name: 'strapi::security',
     config: {
@@ -51,4 +57,3 @@ export default ({ env }) => [
     },
   },
 ];
-
