@@ -461,7 +461,7 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
       }>;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
-    tags: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     tickets: Schema.Attribute.DynamicZone<['activities.ticket']> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -644,7 +644,10 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    activity: Schema.Attribute.Relation<'manyToOne', 'api::activity.activity'>;
+    activities: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::activity.activity'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

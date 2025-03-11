@@ -22,9 +22,9 @@
       "targetField": "tag_name",
       "required": true
     },
-    "activity": {
+    "activities": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::activity.activity",
       "inversedBy": "tags"
     }
