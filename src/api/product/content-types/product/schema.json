@@ -21,10 +21,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
+      "allowedTypes": ["images", "videos"]
     },
     "description": {
       "type": "text"
@@ -38,6 +35,13 @@
       "relation": "manyToOne",
       "target": "api::activity.activity",
       "inversedBy": "products"
+    },
+    "view_count": {
+      "type": "integer",
+      "configurable": false,
+      "min": 0,
+      "default": 0
     }
   }
 }
+
